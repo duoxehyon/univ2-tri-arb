@@ -1,0 +1,46 @@
+[package]
+name = "arb_bot"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[target.'cfg(all(not(windows), not(target_env = "musl")))'.dependencies]
+jemallocator = "0.3.0"
+
+[profile.performance]
+inherits = "release"
+lto = "fat"
+codegen-units = 1
+incremental = false
+
+[dependencies]
+# Interact w/ EVM blockchains.
+ethers = { git = "https://github.com/gakonst/ethers-rs", features = ["ws", "rustls", "abigen","ipc"] }
+
+# Loading .env variables.
+dotenv = "0.15.0"
+
+# Running async threads.
+tokio = { version = "1.5", features = ["macros", "rt-multi-thread"] }
+
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+hex = "0.4.3"
+crossbeam-channel = "0.5.8"
+ethers-core = "2.0.2"
+log = "0.4.17"
+crossbeam-utils = "0.8.15"
+bus = "2.4.0"
+futures = "0.3.5"
+thiserror = "1.0.37"
+revm = {version = "3.0.0", features = ["ethersdb", "serde", "std"]}
+eyre = "0.6.8"
+hashbrown = "0.13.2"
+fern = {version = "0.6", features = ["colored"]}
+chrono = "0.4.24"
+rayon = "1.7"
+indicatif = "0.17.3"
+ctrlc = { version = "3.0", features = ["termination"] }
+axum = { version = "0.6.18"}
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
