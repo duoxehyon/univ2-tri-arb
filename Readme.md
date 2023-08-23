@@ -10,3 +10,5 @@ For learning and reusing components such as a uni v2 token tax checker, a genera
 ### This code is an absolute mess and is highly discoraged to run in prod.
 ### Came across this while cleaning up my computer. Instead of trashing it, thought it could help newbies starting out. glglgl!
 
+![example](https://github.com/duoxehyon/univ2-tri-arb/blob/main/image.png)
+
