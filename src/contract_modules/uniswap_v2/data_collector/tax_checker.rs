@@ -111,21 +111,21 @@ pub fn build_tax_checker_data(
     out_of: U256,
     fees: U256,
 ) -> Bytes {
-    let braindance_contract = BaseContract::from(parse_abi(&[
+    let tax_contract = BaseContract::from(parse_abi(&[
         "function CheckTax(address token,address pair,uint256 outOf,uint256 fees) public returns(uint256,uint256)",
     ]).unwrap());
 
-    braindance_contract
+    tax_contract
         .encode("CheckTax", (token_in, target_pool, out_of, fees))
         .unwrap()
 }
 
 pub fn decode_tax_checker_data(output: Bytes) -> Result<(U256, U256), AbiError> {
-    let braindance_contract = BaseContract::from(parse_abi(&[
+    let tax_contract = BaseContract::from(parse_abi(&[
         "function CheckTax(address token,address pair,uint256 outOf,uint256 fees) public returns(uint256,uint256)",
     ]).unwrap());
 
-    braindance_contract.decode_output("CheckTax", output)
+    tax_contract.decode_output("CheckTax", output)
 }
 
 pub fn inject_tax_checker_code(fork_factory: &mut ForkFactory) {
