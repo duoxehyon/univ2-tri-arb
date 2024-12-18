@@ -4,9 +4,7 @@ This code still works! Just git clone the repository and use `cargo run -r`. If 
 ### Use case
 For learning and reusing components such as a uni v2 token tax checker, a generalized framework for arbitrage, etc...
 
-
-### This code is an absolute mess and is highly discoraged to run in prod.
-### Came across this while cleaning up my computer. Instead of trashing it, thought it could help newbies starting out. glglgl!
+This code works on all EVM blockchains, including L2s where I used to run it, specifically on Arbitrum. I've removed the executor because all optimization alphas for L2s is at the endpoints: sequencer TX feed and execution.
 
 ![example](https://github.com/duoxehyon/univ2-tri-arb/blob/main/image.png)
 
